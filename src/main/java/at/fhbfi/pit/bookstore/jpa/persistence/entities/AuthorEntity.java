@@ -6,7 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -26,7 +29,16 @@ public class AuthorEntity {
     @Column(name = "a_age")
     private int age;
 
-    @ManyToMany
-    private List<BookEntity> books;
+    //@ManyToMany
+   // private List<BookEntity> books;
+
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "booksByAuthor",
+            joinColumns = { @JoinColumn(name = "author_id") },
+            inverseJoinColumns = { @JoinColumn(name = "book_id") }
+    )
+    List<BookEntity> books = new ArrayList<>();
+
 
 }

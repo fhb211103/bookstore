@@ -24,12 +24,12 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public void save(AuthorDto author) {
-
+       authorRepository.save(authorMapper.toEntity(author));
     }
 
     @Override
     public AuthorDto getAuthor(long id) {
-        return null;
+        return authorMapper.toDto(authorRepository.findById(id).orElseGet(null));
     }
 
     @Override

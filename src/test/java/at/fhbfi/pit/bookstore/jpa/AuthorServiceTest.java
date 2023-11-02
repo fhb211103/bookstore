@@ -7,10 +7,12 @@ import at.fhbfi.pit.bookstore.jpa.service.dto.AuthorDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@SpringBootTest
 public class AuthorServiceTest {
 
     @Autowired
@@ -31,12 +33,13 @@ public class AuthorServiceTest {
     @Test
     void testGetOnePerson() {
         saveTwoAuthors();
-        AuthorDto author = authorService.getAuthor(2);
+        AuthorDto author = authorService.getAuthor(1);
         Assertions.assertNotNull(author);
         Assertions.assertEquals("William", author.getName());
 
     }
 
+    @Test
     void saveTwoAuthors() {
         List<AuthorEntity> authors = new ArrayList<>();
         authors.add(AuthorEntity.builder()
@@ -51,6 +54,10 @@ public class AuthorServiceTest {
                 .build());
 
         authorRepository.saveAll(authors);
+        authorRepository.findAll().forEach(System.out::println);
+        authorRepository.deleteById(1L);
+        System.out.println("----");
+        authorRepository.findAll().forEach(System.out::println);
 
     }
 }

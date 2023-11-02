@@ -10,5 +10,8 @@ public interface AuthorRepository extends JpaRepository<AuthorEntity, Long> {
 
     List<AuthorEntity> findByName(String name);
     List<AuthorEntity> findBySurname(String surname);
-    List<AuthorEntity> findByBook(BookEntity b);
+
+    default List<AuthorEntity> findByBook(BookEntity b) {
+        return null;
+    }
 }
