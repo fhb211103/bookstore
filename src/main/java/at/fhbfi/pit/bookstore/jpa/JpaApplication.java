@@ -44,7 +44,7 @@ public class JpaApplication {
 
 		}
 
-	void saveTwoBooks() {
+	void saveBooks() {
 		List<BookEntity> books = new ArrayList<>();
 		books.add(BookEntity.builder()
 				.title("Peter Pan")

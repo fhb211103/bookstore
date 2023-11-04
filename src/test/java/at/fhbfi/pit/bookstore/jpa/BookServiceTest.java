@@ -1,12 +1,8 @@
 package at.fhbfi.pit.bookstore.jpa;
 
-import at.fhbfi.pit.bookstore.jpa.persistence.entities.AuthorEntity;
 import at.fhbfi.pit.bookstore.jpa.persistence.entities.BookEntity;
-import at.fhbfi.pit.bookstore.jpa.persistence.repositories.AuthorRepository;
 import at.fhbfi.pit.bookstore.jpa.persistence.repositories.BookRepository;
-import at.fhbfi.pit.bookstore.jpa.service.AuthorService;
 import at.fhbfi.pit.bookstore.jpa.service.BookService;
-import at.fhbfi.pit.bookstore.jpa.service.dto.AuthorDto;
 import at.fhbfi.pit.bookstore.jpa.service.dto.BookDto;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

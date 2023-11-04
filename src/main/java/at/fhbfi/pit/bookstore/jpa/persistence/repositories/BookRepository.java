@@ -11,4 +11,6 @@ public interface BookRepository extends JpaRepository<BookEntity, Long> {
     List<BookEntity> findByPagesIsGreaterThan(int pages);
     BookEntity findByTitle(String title);
     //List<BookEntity> findByAuthor(AuthorEntity a);
+    List<BookEntity> findAll();
+
 }

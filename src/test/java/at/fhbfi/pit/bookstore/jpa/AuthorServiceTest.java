@@ -4,6 +4,7 @@ import at.fhbfi.pit.bookstore.jpa.persistence.entities.AuthorEntity;
 import at.fhbfi.pit.bookstore.jpa.persistence.repositories.AuthorRepository;
 import at.fhbfi.pit.bookstore.jpa.service.AuthorService;
 import at.fhbfi.pit.bookstore.jpa.service.dto.AuthorDto;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
+@Transactional
 public class AuthorServiceTest {
 
     @Autowired
@@ -48,15 +50,12 @@ public class AuthorServiceTest {
                 .age(52)
                 .build());
         authors.add(AuthorEntity.builder()
-                .name("James M.")
+                .name("James")
                 .surname("Barrie")
                 .age(58)
                 .build());
 
         authorRepository.saveAll(authors);
-        authorRepository.findAll().forEach(System.out::println);
-        authorRepository.deleteById(1L);
-        System.out.println("----");
         authorRepository.findAll().forEach(System.out::println);
 
     }

@@ -19,16 +19,19 @@ public class AuthorServiceImpl implements AuthorService {
 
     @Override
     public List<AuthorDto> getAuthorList() {
+
         return authorMapper.toDto(authorRepository.findAll());
     }
 
     @Override
     public void save(AuthorDto author) {
-       authorRepository.save(authorMapper.toEntity(author));
+
+        authorRepository.save(authorMapper.toEntity(author));
     }
 
     @Override
     public AuthorDto getAuthor(long id) {
+
         return authorMapper.toDto(authorRepository.findById(id).orElseGet(null));
     }
 

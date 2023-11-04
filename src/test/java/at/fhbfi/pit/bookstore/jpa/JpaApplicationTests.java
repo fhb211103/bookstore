@@ -5,13 +5,13 @@ import at.fhbfi.pit.bookstore.jpa.persistence.entities.BookEntity;
 import at.fhbfi.pit.bookstore.jpa.persistence.repositories.AuthorRepository;
 import at.fhbfi.pit.bookstore.jpa.persistence.repositories.BookRepository;
 import at.fhbfi.pit.bookstore.jpa.service.mapper.AuthorMapper;
+import at.fhbfi.pit.bookstore.jpa.service.mapper.BookMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @SpringBootTest
 class JpaApplicationTests {
@@ -20,9 +20,10 @@ class JpaApplicationTests {
     private AuthorRepository authorRepository;
     @Autowired
     private BookRepository bookRepository;
-
     @Autowired
     private AuthorMapper authorMapper;
+    @Autowired
+    private BookMapper bookMapper;
 
     @Test
     void contextLoads() {
@@ -78,11 +79,15 @@ class JpaApplicationTests {
     }
 
     @Test
-    void saveTwoBooks() {
+    void saveBooks() {
         List<BookEntity> books = new ArrayList<>();
         books.add(BookEntity.builder()
                 .title("Peter Pan")
                 .pages(124)
+                .build());
+        books.add(BookEntity.builder()
+                .title("Romeo & Juliet")
+                .pages(168)
                 .build());
         books.add(BookEntity.builder()
                 .title("Romeo & Juliet")

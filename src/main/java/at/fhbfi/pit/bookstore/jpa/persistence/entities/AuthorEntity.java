@@ -32,7 +32,7 @@ public class AuthorEntity {
     //@ManyToMany
    // private List<BookEntity> books;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
     @JoinTable(
             name = "booksByAuthor",
             joinColumns = { @JoinColumn(name = "author_id") },

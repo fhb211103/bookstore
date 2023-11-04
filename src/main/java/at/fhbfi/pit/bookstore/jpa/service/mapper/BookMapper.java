@@ -4,7 +4,9 @@ import at.fhbfi.pit.bookstore.jpa.persistence.entities.AuthorEntity;
 import at.fhbfi.pit.bookstore.jpa.persistence.entities.BookEntity;
 import at.fhbfi.pit.bookstore.jpa.service.dto.AuthorDto;
 import at.fhbfi.pit.bookstore.jpa.service.dto.BookDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BookMapper implements Mapper<BookDto, BookEntity>{
 
     @Override
